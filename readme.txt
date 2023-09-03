@@ -1,6 +1,5 @@
 === Limit Login Attempts Reloaded ===
-Contributors: wpchefgadget
-Donate link: https://www.paypal.com/donate?hosted_button_id=FKD4MYFCMNVQQ
+Contributors: wpchefgadget, Parvus
 Tags: brute force, login, security, firewall, protection
 Requires at least: 3.0
 Tested up to: 6.3
@@ -16,8 +15,6 @@ The plugin functions by automatically preventing further attempts from a particu
 
 By default, WordPress permits an unlimited number of login attempts, posing a vulnerability where passwords can be easily deciphered through brute force methods.
 
-**Limit Login Attempts Reloaded Premium (Try For 7 Days)**
-Upgrade to our premium version to extend cloud-based protection to the Limit Login Attempts Reloaded plugin, thereby enhancing your login security. The premium version includes a range of highly beneficial features, including IP intelligence to detect, counter and deny malicious login attempts. Your failed login attempts will be safely neutralized in the cloud so your website can function at its optimal performance during an attack.  <a href="https://www.limitloginattempts.com/features/?from=wp-details-cta">Activate the premium version now</a> to fortify your login security using the most trusted login security plugin available!
 
 https://www.youtube.com/watch?v=JfkvIiQft14
 
@@ -35,25 +32,6 @@ https://www.youtube.com/watch?v=JfkvIiQft14
 * **Woocommerce** login page protection.
 * **Multi-site compatibility** with extra MU settings.
 * **GDPR** compliant.
-* **Custom IP origins support** (Cloudflare, Sucuri, etc.).
-
-= Features (Premium Version): =
-* **Performance Optimizer** - Offload the burden of excessive failed logins from your server to protect your server resources, resulting in improved speed and efficiency of your website.
-* **Enhanced IP Intelligence** - Identify repetitive and suspicious login attempts to detect potential brute force attacks. IPs with known malicious activity are stored and used to help prevent and counter future attacks. 
-* **Enhanced Throttling** - Longer lockout intervals each time a malicious IP or username tries to login unsuccessfully.
-* **Deny By Country** - Deny IPs by country. 
-* **Auto IP Denylist** - Automatically add IP addresses to your active cloud deny list that repeatedly fail login attempts. 
-* **Global Denylist Protection** - Utilize our active cloud IP data from thousands of websites in the LLAR network. 
-* **Synchronized Lockouts** -  Lockout IP data can be shared between multiple domains for enhanced protection in your network.
-* **Synchronized Safelist/Denylist** - Safelist/Denylist IP and username data can be shared between multiple domains.
-* **Premium Support** - Email support with a security tech.  
-* **Auto Backups of All IP Data** - Store your active IP data in the cloud. 
-* **Enhanced lockout logs** - Gain valuable insights into the origins of IPs that are attempting logins.
-* **CSV Download of IP Data** - Download IP data direclty from the cloud. 
-* **Supports IPV6 Ranges For Safelist/Denylist** 
-* **Unlock The Locked Admin** - Easily unlock the locked admin through the cloud.
-
-*Some features require higher level plans. Please <a href="https://www.limitloginattempts.com/pricing/?from=wp-details">view our pricing</a> for a full list of plans and features.  
 
 
 = Upgrading from the old Limit Login Attempts plugin? =
