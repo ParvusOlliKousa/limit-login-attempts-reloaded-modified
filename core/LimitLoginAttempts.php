@@ -83,6 +83,8 @@ class LimitLoginAttempts {
 	 */
 	public function activation() {
 
+		
+
 		if( !Config::get( 'activation_timestamp' ) ) {
 
             set_transient( 'llar_dashboard_redirect', true, 30 );
@@ -94,6 +96,18 @@ class LimitLoginAttempts {
 	* Hook 'plugins_loaded'
 	*/
 	public function setup() {
+
+		if(in_array('limit-login-attempts-reloaded/limit-login-attempts-reloaded.php', apply_filters('active_plugins', get_option('active_plugins')))){ 
+		
+    
+			// Deactivate my plugin
+			deactivate_plugins( 'limit-login-attempts-reloaded-modified/limit-login-attempts-reloaded-modified.php' );
+		
+			// Optionally display a message
+			add_action('admin_notices', function() {
+				echo '<div class="error"><p>Limit Login Attempts Reloaded - Simplified has been deactivated because Limit Login Attempts Reloaded is active.</p></div>';
+			});
+		}
 
 		if( ! ( $activation_timestamp = Config::get( 'activation_timestamp' ) ) ) {
 
