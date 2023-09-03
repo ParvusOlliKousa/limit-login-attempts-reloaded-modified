@@ -1,12 +1,12 @@
 <?php
 
-use LLAR\Core\Config;
-use LLAR\Core\Helpers;
+use LLARS\Core\Config;
+use LLARS\Core\Helpers;
 
 if( !defined( 'ABSPATH' ) ) exit();
 
 /**
- * @var $this LLAR\Core\LimitLoginAttempts
+ * @var $this LLARS\Core\LimitLoginAttempts
  */
 
 $gdpr = Config::get( 'gdpr' );
@@ -168,7 +168,7 @@ $active_app_config = Config::get( 'app_config' );
                             </i></th>
                         <td>
                             <div class="field-col">
-                                <input type="text" class="regular-text" style="width: 100%;max-width: 431px;" name="lla_trusted_ip_origins" value="<?php echo esc_attr( $trusted_ip_origins ); ?>">
+                                <input type="text" class="regular-text" style="width: 100%;max-width: 431px;" name="LLAS_trusted_ip_origins" value="<?php echo esc_attr( $trusted_ip_origins ); ?>">
                                 <p class="description"><?php _e( 'Specify the origins you trust in order of priority, separated by commas. We strongly recommend that you <b>do not</b> use anything other than REMOTE_ADDR since other origins can be easily faked. Examples: HTTP_X_FORWARDED_FOR, HTTP_CF_CONNECTING_IP, HTTP_X_SUCURI_CLIENTIP', 'limit-login-attempts-reloaded' ); ?></p>
                             </div>
                         </td>

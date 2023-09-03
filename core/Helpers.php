@@ -1,8 +1,8 @@
 <?php
 
-namespace LLAR\Core;
+namespace LLARS\Core;
 
-use LLAR\Lib\CidrCheck;
+use LLARS\Lib\CidrCheck;
 
 if ( !defined( 'ABSPATH' ) ) exit;
 
@@ -68,7 +68,7 @@ class Helpers {
 
 	public static function get_countries_list() {
 
-		if ( ! ( $countries = require LLA_PLUGIN_DIR . '/resources/countries.php' ) ) {
+		if ( ! ( $countries = require LLAS_PLUGIN_DIR . '/resources/countries.php' ) ) {
 
 			return array();
 		}
@@ -102,7 +102,7 @@ class Helpers {
 	 */
 	public static function is_mu() {
 
-		return ( strpos( LLA_PLUGIN_DIR, 'mu-plugins' ) !== false );
+		return ( strpos( LLAS_PLUGIN_DIR, 'mu-plugins' ) !== false );
 	}
 
 	/**
@@ -121,7 +121,7 @@ class Helpers {
 
 	public static function is_auto_update_enabled() {
 		$auto_update_plugins = get_site_option( 'auto_update_plugins' );
-		return is_array( $auto_update_plugins ) && in_array( LLA_PLUGIN_BASENAME, $auto_update_plugins );
+		return is_array( $auto_update_plugins ) && in_array( LLAS_PLUGIN_BASENAME, $auto_update_plugins );
 	}
 
 	public static function get_wordpress_version() {
@@ -341,15 +341,15 @@ class Helpers {
 
 	public static function send_mail_with_logo( $to, $subject, $body ) {
 
-		add_action( 'phpmailer_init', array( 'LLAR\Core\Helpers', 'add_attachments_to_php_mailer' ) );
+		add_action( 'phpmailer_init', array( 'LLARS\Core\Helpers', 'add_attachments_to_php_mailer' ) );
 
 		@wp_mail( $to, $subject, $body, array( 'content-type: text/html' ) );
 
-		remove_action( 'phpmailer_init', array( 'LLAR\Core\Helpers', 'add_attachments_to_php_mailer' ) );
+		remove_action( 'phpmailer_init', array( 'LLARS\Core\Helpers', 'add_attachments_to_php_mailer' ) );
 	}
 
 	public static function add_attachments_to_php_mailer( &$phpmailer ) {
-		$logo_path = LLA_PLUGIN_DIR . 'assets/img/logo.png';
+		$logo_path = LLAS_PLUGIN_DIR . 'assets/img/logo.png';
 
 		if( file_exists( $logo_path ) ) {
 			$phpmailer->AddEmbeddedImage( $logo_path, 'logo' );

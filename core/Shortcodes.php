@@ -1,6 +1,6 @@
 <?php
 
-namespace LLAR\Core;
+namespace LLARS\Core;
 
 if( !defined( 'ABSPATH' ) ) exit();
 

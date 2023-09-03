@@ -1,6 +1,6 @@
 <?php
 
-namespace LLAR\Core;
+namespace LLARS\Core;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -13,7 +13,7 @@ class Config {
 		'gdpr_message'       => '',
 
 		/* Are we behind a proxy? */
-		'client_type'        => LLA_DIRECT_ADDR,
+		'client_type'        => LLAS_DIRECT_ADDR,
 
 		/* Lock out after this many tries */
 		'allowed_retries'    => 5,
@@ -182,15 +182,15 @@ class Config {
 		}
 
 		$args         = explode( ',', self::get( 'lockout_notify' ) );
-		$args_allowed = explode( ',', LLA_LOCKOUT_NOTIFY_ALLOWED );
+		$args_allowed = explode( ',', LLAS_LOCKOUT_NOTIFY_ALLOWED );
 		$new_args     = array_intersect( $args, $args_allowed );
 
 		self::update( 'lockout_notify', implode( ',', $new_args ) );
 
 		$client_type = self::get( 'client_type' );
 
-		if ( $client_type != LLA_DIRECT_ADDR && $client_type != LLA_PROXY_ADDR ) {
-			self::update( 'client_type', LLA_DIRECT_ADDR );
+		if ( $client_type != LLAS_DIRECT_ADDR && $client_type != LLAS_PROXY_ADDR ) {
+			self::update( 'client_type', LLAS_DIRECT_ADDR );
 		}
 	}
 

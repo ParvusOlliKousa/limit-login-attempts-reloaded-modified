@@ -1,6 +1,6 @@
 <?php
 
-namespace LLAR\Lib;
+namespace LLARS\Lib;
 
 class CidrCheck {
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace LLAR\Core;
+namespace LLARS\Core;
 
-use LLAR\Core\Http\Http;
+use LLARS\Core\Http\Http;
 
 if( !defined( 'ABSPATH' ) ) exit;
 
@@ -334,7 +334,7 @@ class Ajax {
                         <td>
                             <div class="llar-log-country-flag">
                                 <span class="llar-tooltip" data-text="<?php echo esc_attr( $country_name ); ?>">
-                                    <img src="<?php echo LLA_PLUGIN_URL . 'assets/img/flags/' . esc_attr( $item['country_code'] ) . '.png' ?>">
+                                    <img src="<?php echo LLAS_PLUGIN_URL . 'assets/img/flags/' . esc_attr( $item['country_code'] ) . '.png' ?>">
                                 </span>&nbsp;<span><?php echo esc_html( $item['ip'] ); ?></span></div>
                         </td>
                         <td><?php echo esc_html( $item['gateway'] ); ?></td>

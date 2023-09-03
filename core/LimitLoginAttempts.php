@@ -1,10 +1,10 @@
 <?php
 
-namespace LLAR\Core;
+namespace LLARS\Core;
 
 use Exception;
 use IXR_Error;
-use LLAR\Core\Http\Http;
+use LLARS\Core\Http\Http;
 use WP_Error;
 use WP_User;
 
@@ -75,7 +75,7 @@ class LimitLoginAttempts {
 		add_action( 'login_footer', array( $this, 'login_page_render_js' ), 9999 );
 		add_action( 'wp_footer', array( $this, 'login_page_render_js' ), 9999 );
 
-		register_activation_hook( LLA_PLUGIN_FILE, array( $this, 'activation' ) );
+		register_activation_hook( LLAS_PLUGIN_FILE, array( $this, 'activation' ) );
 	}
 
 	/**
@@ -155,7 +155,7 @@ class LimitLoginAttempts {
 		 */
 		add_action( 'authenticate', array( $this, 'authenticate_filter_errors_fix' ), 35, 3 );
 
-		add_filter( 'plugin_action_links_' . LLA_PLUGIN_BASENAME, array( $this, 'add_action_links' ) );
+		add_filter( 'plugin_action_links_' . LLAS_PLUGIN_BASENAME, array( $this, 'add_action_links' ) );
 	}
 
 	public function login_page_gdpr_message() {
@@ -226,9 +226,9 @@ class LimitLoginAttempts {
 	    if( !empty( $_REQUEST['page'] ) && $_REQUEST['page'] !== $this->_options_page_slug ) return;
 
 		wp_enqueue_script('jquery-ui-accordion');
-		wp_enqueue_style('llar-jquery-ui', LLA_PLUGIN_URL.'assets/css/jquery-ui.css');
+		wp_enqueue_style('llar-jquery-ui', LLAS_PLUGIN_URL.'assets/css/jquery-ui.css');
 
-		wp_enqueue_script( 'llar-charts', LLA_PLUGIN_URL . 'assets/js/chart.umd.js' );
+		wp_enqueue_script( 'llar-charts', LLAS_PLUGIN_URL . 'assets/js/chart.umd.js' );
 	}
 
 	public function check_whitelist_ips( $allow, $ip ) {
@@ -469,24 +469,24 @@ class LimitLoginAttempts {
 	*/
 	public function enqueue() {
 
-	    $plugin_data = get_plugin_data( LLA_PLUGIN_DIR . 'limit-login-attempts-reloaded.php' );
+	    $plugin_data = get_plugin_data( LLAS_PLUGIN_DIR . 'limit-login-attempts-reloaded.php' );
 
-		wp_enqueue_style( 'lla-main', LLA_PLUGIN_URL . 'assets/css/limit-login-attempts.css', array(), $plugin_data['Version'] );
-//		wp_enqueue_script( 'lla-main', LLA_PLUGIN_URL . 'assets/js/limit-login-attempts.js', array(), $plugin_data['Version'] );
+		wp_enqueue_style( 'lla-main', LLAS_PLUGIN_URL . 'assets/css/limit-login-attempts.css', array(), $plugin_data['Version'] );
+//		wp_enqueue_script( 'lla-main', LLAS_PLUGIN_URL . 'assets/js/limit-login-attempts.js', array(), $plugin_data['Version'] );
 
 		if( !empty( $_REQUEST['page'] ) && $_REQUEST['page'] === $this->_options_page_slug ) {
 
-			wp_enqueue_style( 'lla-jquery-confirm', LLA_PLUGIN_URL . 'assets/css/jquery-confirm.min.css' );
-			wp_enqueue_script( 'lla-jquery-confirm', LLA_PLUGIN_URL . 'assets/js/jquery-confirm.min.js' );
+			wp_enqueue_style( 'lla-jquery-confirm', LLAS_PLUGIN_URL . 'assets/css/jquery-confirm.min.css' );
+			wp_enqueue_script( 'lla-jquery-confirm', LLAS_PLUGIN_URL . 'assets/js/jquery-confirm.min.js' );
         }
 
 	}
 
 	public function login_page_enqueue() {
 
-	    $plugin_data = get_plugin_data( LLA_PLUGIN_DIR . 'limit-login-attempts-reloaded.php' );
+	    $plugin_data = get_plugin_data( LLAS_PLUGIN_DIR . 'limit-login-attempts-reloaded.php' );
 
-		wp_enqueue_style( 'llar-login-page-styles', LLA_PLUGIN_URL . 'assets/css/login-page-styles.css', array(), $plugin_data['Version'] );
+		wp_enqueue_style( 'llar-login-page-styles', LLAS_PLUGIN_URL . 'assets/css/login-page-styles.css', array(), $plugin_data['Version'] );
         wp_enqueue_script( 'jquery' );
 	}
 
@@ -577,7 +577,7 @@ class LimitLoginAttempts {
 	}
 
 	public function get_svg_logo_content() {
-	    return file_get_contents( LLA_PLUGIN_DIR . 'assets/img/logo.svg' );
+	    return file_get_contents( LLAS_PLUGIN_DIR . 'assets/img/logo.svg' );
     }
 
 
@@ -1251,7 +1251,7 @@ class LimitLoginAttempts {
             /* Should we update options? */
             if( isset( $_POST[ 'llar_update_dashboard' ] ) ) {
 
-                $white_list_ips = ( !empty( $_POST['lla_whitelist_ips'] ) ) ? explode("\n", str_replace("\r", "", stripslashes($_POST['lla_whitelist_ips']) ) ) : array();
+                $white_list_ips = ( !empty( $_POST['LLAS_whitelist_ips'] ) ) ? explode("\n", str_replace("\r", "", stripslashes($_POST['LLAS_whitelist_ips']) ) ) : array();
 
                 if( !empty( $white_list_ips ) ) {
                     foreach( $white_list_ips as $key => $ip ) {
@@ -1262,7 +1262,7 @@ class LimitLoginAttempts {
                 }
                 Config::update('whitelist', $white_list_ips );
 
-                $white_list_usernames = ( !empty( $_POST['lla_whitelist_usernames'] ) ) ? explode("\n", str_replace("\r", "", stripslashes($_POST['lla_whitelist_usernames']) ) ) : array();
+                $white_list_usernames = ( !empty( $_POST['LLAS_whitelist_usernames'] ) ) ? explode("\n", str_replace("\r", "", stripslashes($_POST['LLAS_whitelist_usernames']) ) ) : array();
 
                 if( !empty( $white_list_usernames ) ) {
                     foreach( $white_list_usernames as $key => $ip ) {
@@ -1273,7 +1273,7 @@ class LimitLoginAttempts {
                 }
                 Config::update('whitelist_usernames', $white_list_usernames );
 
-                $black_list_ips = ( !empty( $_POST['lla_blacklist_ips'] ) ) ? explode("\n", str_replace("\r", "", stripslashes($_POST['lla_blacklist_ips']) ) ) : array();
+                $black_list_ips = ( !empty( $_POST['LLAS_blacklist_ips'] ) ) ? explode("\n", str_replace("\r", "", stripslashes($_POST['LLAS_blacklist_ips']) ) ) : array();
 
                 if( !empty( $black_list_ips ) ) {
                     foreach( $black_list_ips as $key => $ip ) {
@@ -1288,7 +1288,7 @@ class LimitLoginAttempts {
                 }
                 Config::update('blacklist', $black_list_ips );
 
-                $black_list_usernames = ( !empty( $_POST['lla_blacklist_usernames'] ) ) ? explode("\n", str_replace("\r", "", stripslashes($_POST['lla_blacklist_usernames']) ) ) : array();
+                $black_list_usernames = ( !empty( $_POST['LLAS_blacklist_usernames'] ) ) ? explode("\n", str_replace("\r", "", stripslashes($_POST['LLAS_blacklist_usernames']) ) ) : array();
 
                 if( !empty( $black_list_usernames ) ) {
                     foreach( $black_list_usernames as $key => $ip ) {
@@ -1330,8 +1330,8 @@ class LimitLoginAttempts {
 
 	            Config::update('active_app', sanitize_text_field( $_POST['active_app'] ) );
 
-                $trusted_ip_origins = ( !empty( $_POST['lla_trusted_ip_origins'] ) )
-                    ? array_map( 'trim', explode( ',', sanitize_text_field( $_POST['lla_trusted_ip_origins'] ) ) )
+                $trusted_ip_origins = ( !empty( $_POST['LLAS_trusted_ip_origins'] ) )
+                    ? array_map( 'trim', explode( ',', sanitize_text_field( $_POST['LLAS_trusted_ip_origins'] ) ) )
                     : array();
 
                 if( !in_array( 'REMOTE_ADDR', $trusted_ip_origins ) ) {
@@ -1379,7 +1379,7 @@ class LimitLoginAttempts {
             }
 		}
 
-		include_once( LLA_PLUGIN_DIR . 'views/options-page.php' );
+		include_once( LLAS_PLUGIN_DIR . 'views/options-page.php' );
 	}
 
 	/**
@@ -1429,7 +1429,7 @@ class LimitLoginAttempts {
 
 			<div id="message" class="updated fade notice is-dismissible llar-notice-review">
                 <div class="llar-review-image">
-                    <img width="80px" src="<?php echo LLA_PLUGIN_URL?>assets/img/icon-256x256.png" alt="review-logo">
+                    <img width="80px" src="<?php echo LLAS_PLUGIN_URL?>assets/img/icon-256x256.png" alt="review-logo">
                 </div>
 				<div class="llar-review-info">
 				    <p><?php _e('Hey <strong>Limit Login Attempts Reloaded</strong> user!', 'limit-login-attempts-reloaded'); ?></p>

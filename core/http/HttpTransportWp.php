@@ -1,6 +1,6 @@
 <?php
 
-namespace LLAR\Core\Http;
+namespace LLARS\Core\Http;
 
 class HttpTransportWp implements HttpTransportInterface {
 

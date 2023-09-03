@@ -1,9 +1,9 @@
 <?php
 
-namespace LLAR\Core;
+namespace LLARS\Core;
 
 use Exception;
-use LLAR\Core\Http\Http;
+use LLARS\Core\Http\Http;
 
 if( !defined( 'ABSPATH' ) ) exit;
 
@@ -97,7 +97,7 @@ class CloudApp {
 		$domain = parse_url( home_url( '/' ) );
 		$link = add_query_arg( 'domain', $domain['host'], $link );
 
-		$plugin_data = get_plugin_data( LLA_PLUGIN_DIR . 'limit-login-attempts-reloaded.php' );
+		$plugin_data = get_plugin_data( LLAS_PLUGIN_DIR . 'limit-login-attempts-reloaded.php' );
 		$link = add_query_arg( 'version', $plugin_data['Version'], $link );
 
 		$setup_response = Http::get( $link );

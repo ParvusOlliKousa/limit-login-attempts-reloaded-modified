@@ -1,8 +1,8 @@
 <?php
 
-use LLAR\Core\Config;
-use LLAR\Core\Helpers;
-use LLAR\Core\LimitLoginAttempts;
+use LLARS\Core\Config;
+use LLARS\Core\Helpers;
+use LLARS\Core\LimitLoginAttempts;
 
 if( !defined( 'ABSPATH' ) ) exit();
 
@@ -68,11 +68,11 @@ $black_list_usernames = ( is_array( $black_list_usernames ) && !empty( $black_li
             <td>
                 <div class="field-col">
                     <p class="description"><?php _e( 'One IP or IP range (1.2.3.4-5.6.7.8) per line', 'limit-login-attempts-reloaded' ); ?></p>
-                    <textarea name="lla_whitelist_ips" rows="10" cols="50"><?php echo esc_textarea( $white_list_ips ); ?></textarea>
+                    <textarea name="LLAS_whitelist_ips" rows="10" cols="50"><?php echo esc_textarea( $white_list_ips ); ?></textarea>
                 </div>
                 <div class="field-col">
                     <p class="description"><?php _e( 'One Username per line', 'limit-login-attempts-reloaded' ); ?></p>
-                    <textarea name="lla_whitelist_usernames" rows="10" cols="50"><?php echo esc_textarea( $white_list_usernames ); ?></textarea>
+                    <textarea name="LLAS_whitelist_usernames" rows="10" cols="50"><?php echo esc_textarea( $white_list_usernames ); ?></textarea>
                 </div>
             </td>
         </tr>
@@ -82,11 +82,11 @@ $black_list_usernames = ( is_array( $black_list_usernames ) && !empty( $black_li
             <td>
                 <div class="field-col">
                     <p class="description"><?php _e( 'One IP or IP range (1.2.3.4-5.6.7.8) per line', 'limit-login-attempts-reloaded' ); ?></p>
-                    <textarea name="lla_blacklist_ips" rows="10" cols="50"><?php echo esc_textarea( $black_list_ips ); ?></textarea>
+                    <textarea name="LLAS_blacklist_ips" rows="10" cols="50"><?php echo esc_textarea( $black_list_ips ); ?></textarea>
                 </div>
                 <div class="field-col">
                     <p class="description"><?php _e( 'One Username per line', 'limit-login-attempts-reloaded' ); ?></p>
-                    <textarea name="lla_blacklist_usernames" rows="10" cols="50"><?php echo esc_textarea( $black_list_usernames ); ?></textarea>
+                    <textarea name="LLAS_blacklist_usernames" rows="10" cols="50"><?php echo esc_textarea( $black_list_usernames ); ?></textarea>
                 </div>
             </td>
         </tr>

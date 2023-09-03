@@ -1,8 +1,8 @@
 <?php
 
-use LLAR\Core\Config;
-use LLAR\Core\Helpers;
-use LLAR\Core\LimitLoginAttempts;
+use LLARS\Core\Config;
+use LLARS\Core\Helpers;
+use LLARS\Core\LimitLoginAttempts;
 
 if( !defined( 'ABSPATH' ) ) exit();
 
@@ -29,5 +29,5 @@ if( !empty($_GET["tab"]) && in_array( $_GET["tab"], array( 'logs-local', 'settin
         <a href="<?php echo $this->get_options_page_uri('debug'); ?>" class="nav-tab <?php if($active_tab == 'debug'){echo 'nav-tab-active';} ?>"><?php _e('Debug', 'limit-login-attempts-reloaded'); ?></a>       
     </h2>
 
-    <?php include_once(LLA_PLUGIN_DIR.'views/tab-'.$active_tab.'.php'); ?>
+    <?php include_once(LLAS_PLUGIN_DIR.'views/tab-'.$active_tab.'.php'); ?>
 </div>

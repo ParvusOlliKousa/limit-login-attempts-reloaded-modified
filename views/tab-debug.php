@@ -1,6 +1,6 @@
 <?php
 
-use LLAR\Core\Helpers;
+use LLARS\Core\Helpers;
 
 if( !defined( 'ABSPATH' ) ) exit();
 
@@ -37,7 +37,7 @@ foreach ($server as $server_key => $ips ) {
 	$debug_info .= $server_key . ' = ' . trim( $ips, ',' ) . "\n";
 }
 
-$plugin_data = get_plugin_data( LLA_PLUGIN_FILE );
+$plugin_data = get_plugin_data( LLAS_PLUGIN_FILE );
 ?>
 
 <table class="form-table">
