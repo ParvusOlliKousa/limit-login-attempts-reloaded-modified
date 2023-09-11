@@ -97,7 +97,7 @@ class LimitLoginAttempts {
 	*/
 	public function setup() {
 
-		if(in_array('limit-login-attempts-reloaded/limit-login-attempts-reloaded.php', apply_filters('active_plugins', get_option('active_plugins')))){ 
+		if(in_array('limit-login-attempts-reloaded/limit-login-attempts-reloaded-modified.php', apply_filters('active_plugins', get_option('active_plugins')))){ 
 		
     
 			// Deactivate my plugin
@@ -483,7 +483,7 @@ class LimitLoginAttempts {
 	*/
 	public function enqueue() {
 
-	    $plugin_data = get_plugin_data( LLAS_PLUGIN_DIR . 'limit-login-attempts-reloaded.php' );
+	    $plugin_data = get_plugin_data( LLAS_PLUGIN_DIR . 'limit-login-attempts-reloaded-modified.php' );
 
 		wp_enqueue_style( 'lla-main', LLAS_PLUGIN_URL . 'assets/css/limit-login-attempts.css', array(), $plugin_data['Version'] );
 //		wp_enqueue_script( 'lla-main', LLAS_PLUGIN_URL . 'assets/js/limit-login-attempts.js', array(), $plugin_data['Version'] );
@@ -498,7 +498,7 @@ class LimitLoginAttempts {
 
 	public function login_page_enqueue() {
 
-	    $plugin_data = get_plugin_data( LLAS_PLUGIN_DIR . 'limit-login-attempts-reloaded.php' );
+	    $plugin_data = get_plugin_data( LLAS_PLUGIN_DIR . 'limit-login-attempts-reloaded-modified.php' );
 
 		wp_enqueue_style( 'llar-login-page-styles', LLAS_PLUGIN_URL . 'assets/css/login-page-styles.css', array(), $plugin_data['Version'] );
         wp_enqueue_script( 'jquery' );
