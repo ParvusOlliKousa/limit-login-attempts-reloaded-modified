@@ -5,7 +5,7 @@ Description: Block brute force login attempts. Plugin modified by Parvus to remo
 Author: Limit Login Attempts Reloaded (modified by Parvus.fi)
 Author URI: https://parvus.fi
 Text Domain: limit-login-attempts-reloaded-simplified
-Version: 2.25.24
+Version: 2.25.25
 
 Copyright 2008 - 2012 Johan Eenfeldt, 2016 - 2023 Limit Login Attempts Reloaded
 */
