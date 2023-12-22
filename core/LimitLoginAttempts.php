@@ -45,7 +45,6 @@ class LimitLoginAttempts {
 
 		$this->hooks_init();
 		$this->setup();
-        $this->cloud_app_init();
 
 		(new Shortcodes())->register();
 		(new Ajax())->register();
