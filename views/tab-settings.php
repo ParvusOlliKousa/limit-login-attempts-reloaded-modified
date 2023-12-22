@@ -9,8 +9,6 @@ if( !defined( 'ABSPATH' ) ) exit();
  * @var $this LLARS\Core\LimitLoginAttempts
  */
 
-$gdpr = Config::get( 'gdpr' );
-$gdpr_message = Config::get( 'gdpr_message' );
 
 $v = explode( ',', Config::get( 'lockout_notify' ) );
 $email_checked = in_array( 'email', $v ) ? ' checked ' : '';
@@ -62,27 +60,7 @@ $active_app_config = Config::get( 'app_config' );
     <?php endif ?>
 
     <div class="llar-settings-wrap">
-        <table class="form-table">
-            <tr>
-                <th scope="row"
-                    valign="top"><?php echo __( 'GDPR compliance', 'limit-login-attempts-reloaded' ); ?></th>
-                <td>
-                    <input type="checkbox" name="gdpr" value="1" <?php if($gdpr): ?> checked <?php endif; ?>/>
-				    <?php echo __( 'this makes the plugin <a href="https://gdpr-info.eu/" target="_blank">GDPR</a> compliant by showing a message on the login page. <a href="https://www.limitloginattempts.com/gdpr-qa/?from=plugin-settings-gdpr" target="_blank">Read more</a>', 'limit-login-attempts-reloaded' ); ?> <br/>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row"
-                    valign="top"><?php echo __( 'GDPR message', 'limit-login-attempts-reloaded' ); ?>
-                    <i class="llar-tooltip" data-text="<?php esc_attr_e( 'This message will appear at the bottom of the login page.', 'limit-login-attempts-reloaded' ); ?>">
-                        <span class="dashicons dashicons-editor-help"></span>
-                    </i></th>
-                <td>
-                    <textarea name="gdpr_message" cols="60"><?php echo esc_textarea( stripslashes( $gdpr_message ) ); ?></textarea>
-                    <p class="description"><?php echo __( 'You can use a shortcode here to insert links, for example, a link to your Privacy Policy page. <br>The shortcode is: [llar-link url="https://example.com" text="Privacy Policy"]', 'limit-login-attempts-reloaded' ); ?></p>
-                </td>
-            </tr>
-            
+        <table class="form-table">           
             <tr >
                 <div style="display:none!important;">
 
