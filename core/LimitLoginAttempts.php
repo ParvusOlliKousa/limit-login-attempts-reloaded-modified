@@ -45,8 +45,7 @@ class LimitLoginAttempts {
 
 		$this->hooks_init();
 		$this->setup();
-
-		(new Shortcodes())->register();
+		
 		(new Ajax())->register();
 	}
 
